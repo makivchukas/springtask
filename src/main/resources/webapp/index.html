@@ -27,27 +27,19 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
 <body>
-	<div id="Text">Some text</div>
     <div class="container">
         <img id="imgP" src="image" 			class="img-responsive" alt="LIVE! Sever Screen Now!" />
     </div>
     <script>
         $(document).ready(function(){            
 	        setInterval(function refreshDialer(){
-             
-
-        var currentdate = new Date(); 
-        var datetime = "Last Sync: " + currentdate.getSeconds();
-        $("#imgP").attr('src', 'image?rand='+ Math.random()).load(function(){this.width;});
-        console.log(datetime);
-        console.log($("#imgP").attr('src'));
-
-		
-		}, 500);
+                var currentdate = new Date(); 
+                var datetime = "Last Sync: " + currentdate.getSeconds();
+                $("#imgP").attr('src', 'image?rand='+ Math.random()).load(function(){this.width;});
+                console.log(datetime);
+                console.log($("#imgP").attr('src'));		
+		    }, 500);
         });
-
     </script>
-
 </body>
-
 </html>
