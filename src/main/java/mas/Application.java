@@ -15,6 +15,7 @@ public class Application {
         System.out.println("Start");        
         Server server =ctx.getBean(Server.class);
         server.start();
-        server.join();        
+        server.join();
+        ctx.close();
     }
 }

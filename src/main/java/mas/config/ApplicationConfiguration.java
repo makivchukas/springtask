@@ -4,7 +4,7 @@ import mas.servlet.MainServlet;
 
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.context.annotation.*;
 
 @Configuration
@@ -22,4 +22,6 @@ public class ApplicationConfiguration {
          context.addServlet(ImageServlet.class, "/image");
          return server;
     }
+    
+    
 }
