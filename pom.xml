@@ -8,10 +8,16 @@
         <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-
+        <spring.ver>5.0.6.RELEASE</spring.ver>
     </properties>
     
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+             <version>${spring.ver}</version>
+        </dependency>
         <dependency>
           <groupId>org.eclipse.jetty</groupId>
           <artifactId>jetty-servlet</artifactId>
