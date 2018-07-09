@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Screen Task">
+    <title>Screen Task</title>
+
+    <link href="bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+			padding:0px;
+			 background-color:#000000;
+        }
+		.container{
+		padding-top: 5px;
+
+			margin: auto;
+				heigth: 84%;
+			width:100%;
+		}
+
+		.img-responsive{display:block;height:auto;max-width:auto}
+
+    </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+</head>
+<body>
+	<div id="Text">Some text</div>
+    <div class="container">
+        <img id="imgP" src="image" 			class="img-responsive" alt="LIVE! Sever Screen Now!" />
+    </div>
+    <script>
+        $(document).ready(function(){            
+	        setInterval(function refreshDialer(){
+             
+
+        var currentdate = new Date(); 
+        var datetime = "Last Sync: " + currentdate.getSeconds();
+        $("#imgP").attr('src', 'image?rand='+ Math.random()).load(function(){this.width;});
+        console.log(datetime);
+        console.log($("#imgP").attr('src'));
+
+		
+		}, 500);
+        });
+
+    </script>
+
+</body>
+
+</html>
