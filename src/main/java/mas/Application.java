@@ -3,7 +3,6 @@ package mas;
 import mas.config.ApplicationConfiguration;
 
 import org.eclipse.jetty.server.Server;
-
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Application {

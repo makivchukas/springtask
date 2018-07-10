@@ -24,18 +24,15 @@ public class ImageServlet extends HttpServlet
         OutputStream out = response.getOutputStream();
 		response.setContentType("image/jpeg");
         Rectangle rec = new Rectangle (
-      Toolkit.getDefaultToolkit().getScreenSize());
-      try{
-            Robot robot = new Robot();
-            BufferedImage img = robot.createScreenCapture(rec);
-    
-    		ImageIO.write(img, "jpg", out);
-		
+        Toolkit.getDefaultToolkit().getScreenSize());
+        try{
+                Robot robot = new Robot();
+                BufferedImage img = robot.createScreenCapture(rec);        
+        		ImageIO.write(img, "jpg", out);    		
         }catch(AWTException e){
             e.printStackTrace();
         }
-
-		out.close();
-            
+    
+		out.close();                
         }
     }
