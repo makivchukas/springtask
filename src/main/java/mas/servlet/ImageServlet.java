@@ -14,25 +14,38 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ImageServlet extends HttpServlet
+import java.util.*;
+import java.io.*;
+
+public class ImageServlet extends HttpServlet{
+    private  Rectangle rec;
+    public ImageServlet(){
+        Properties prop = new Properties();
+        String path="screenSize.properties";
+        try(InputStream input = ImageServlet.class.getClassLoader().getResourceAsStream(path);){
+		    prop.load(input);
+		    rec = new Rectangle(Integer.valueOf(prop.getProperty("screen.startpoint.x")), Integer.valueOf(prop.getProperty("screen.startpoint.y")),
+		    Integer.valueOf(prop.getProperty("screen.startpoint.width")),Integer.valueOf(prop.getProperty("screen.startpoint.height")));
+            System.out.println(rec);
+        } catch (IOException ex) {
+    		ex.printStackTrace();
+        }
+    }
+        
+    @Override
+    protected void doGet( HttpServletRequest request, HttpServletResponse response ) throws  ServletException, IOException
     {
-        @Override
-        protected void doGet( HttpServletRequest request,
-                              HttpServletResponse response ) throws  ServletException,
-                                                            IOException
-        {
         OutputStream out = response.getOutputStream();
 		response.setContentType("image/jpeg");
-        Rectangle rec = new Rectangle (
-        Toolkit.getDefaultToolkit().getScreenSize());
+//        Rectangle rec = new Rectangle (
+//        Toolkit.getDefaultToolkit().getScreenSize());
         try{
-                Robot robot = new Robot();
-                BufferedImage img = robot.createScreenCapture(rec);        
-        		ImageIO.write(img, "jpg", out);    		
+            Robot robot = new Robot();
+            BufferedImage img = robot.createScreenCapture(rec);        
+    		ImageIO.write(img, "jpg", out);    		
         }catch(AWTException e){
             e.printStackTrace();
         }
-    
 		out.close();                
-        }
     }
+}
