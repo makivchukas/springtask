@@ -36,13 +36,13 @@ public class ImageServlet extends HttpServlet{
     protected void doGet( HttpServletRequest request, HttpServletResponse response ) throws  ServletException, IOException
     {
         OutputStream out = response.getOutputStream();
-		response.setContentType("image/jpeg");
+		response.setContentType("image/png");
 //        Rectangle rec = new Rectangle (
 //        Toolkit.getDefaultToolkit().getScreenSize());
         try{
             Robot robot = new Robot();
             BufferedImage img = robot.createScreenCapture(rec);        
-    		ImageIO.write(img, "jpg", out);    		
+    		ImageIO.write(img, "png", out);    		
         }catch(AWTException e){
             e.printStackTrace();
         }
